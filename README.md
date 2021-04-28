@@ -51,5 +51,6 @@ AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
   - [X] run `setup/patch_mbn.inp` --> `t2_mbnpatch.{psf, crd, pdb}`  
   - [X] optimize ferrocene RB3LYP/Aug-CC-pVDZ charge 0 spin singlet  
     staggered (Energy: -1650.91044652 A.U., DM: 0.0006) and eclipsed (Energy: -1650.91158318 A.U., DM: 0.000755)  
-  - [ ] make two patch residues : -C6-FEC, -C11-FEC
-  - [ ] 
+  - [X] make two patch residues : -C6-FEC, -C11-FEC
+    - [X] make sure topology is correct for cyclopentadienyl part
+    - 
