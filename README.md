@@ -48,4 +48,6 @@ and in `DIHEDRALS`
 IAU       SG311    CG2R61   CG2R61 0.0000 2 0.00
 AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
 ```
-  - [ ] run `setup/patch_mbn.inp` -> step
+  - [ ] run `setup/patch_mbn.inp` --> `t2_mbnpatch.{psf, crd, pdb}`  
+  - [ ] optimize ferrocene RB3LYP/Aug-CC-pVDZ charge 0 spin singlet | staggered (Energy: -1650.91044652 A.U., DM: 0.0006) and eclipsed (Energy: -1650.91158318 A.U., DM: 0.000755)  
+  - [ ] 
