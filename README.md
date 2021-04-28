@@ -4,7 +4,7 @@ electric field calculation of MBN and alkyl-ferrocene functionalized Au surface
 ----  
   - [X] get 1 nm x 1 nm x 2 nm surface with -S-CH2-CH3 on positions 1,5 of AU100 22% occupancy | charmm-gui jobid 1939395487
   - [ ] (manual) change part of residue name for THDL in the middle (182) to delete  
-  - [ ] (like before) add another pres for MBN at the end of toppar_all36_nanolig_patch.str in charmm-gui-xxxx/toppar/  
+  - [ ] (like nitrile IL) add another pres for MBN at the end of `toppar_all36_nanolig_patch.str` in `charmm-gui-xxxx/toppar/`  
 ```
 !tanmmoy 05/02/2020
 PRES L00250 -0.000 ! linkage between THSLK and MBN
@@ -33,4 +33,4 @@ BOND    CE1 HE1 CE2 HE2
 BOND    CZ  CE1 CZ CE2 CZ CN
 BOND    CN   NZ
 ```
-  - [ ] 
+  - [ ] run `setup/patch_mbn.inp` -> step
