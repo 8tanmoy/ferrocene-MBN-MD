@@ -7,7 +7,7 @@ electric field calculation of MBN and alkyl-ferrocene functionalized Au surface
   - [X] delete unnecessary toppar load from `toppar.str`  
   - [X] (like nitrile IL) add another pres for MBN at the end of `toppar_all36_nanolig_patch.str` in `charmm-gui-xxxx/toppar/`  
 ```
-!tanmmoy 05/02/2020
+!tanmmoy 04/28/2021 
 PRES L00250 -0.000 ! linkage between THSLK and MBN
 dele atom H11
 dele atom H12
@@ -38,5 +38,14 @@ BOND    CE1 HE1 CE2 HE2
 BOND    CZ  CE1 CZ CE2 CZ CN
 BOND    CN   NZ
 ```  
-  - [X] error might be generated like: `<CODES>: No angle parameters for    17 ( IAU      SG311    CG2R61  )`  
+  - [X] error might be generated like: `<CODES>: No angle parameters for    17 ( IAU      SG311    CG2R61  )`. For this `toppar/par_interface.prm` needs to be modified. in `ANGLES`  
+```
+IAU  SG311     CG2R61   35.0000   105.0   ! 10.1007/s10853-012-6356-8
+AUS  SG311     CG2R61   35.0000   105.0   ! 10.1007/s10853-012-6356-8
+```  
+and in `DIHEDRALS`  
+```
+IAU       SG311    CG2R61   CG2R61 0.0000 2 0.00
+AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
+```
   - [ ] run `setup/patch_mbn.inp` -> step
