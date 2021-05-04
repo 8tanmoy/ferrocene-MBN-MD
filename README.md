@@ -52,7 +52,7 @@ AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
   - [X] optimize ferrocene RB3LYP/Aug-CC-pVDZ charge 0 spin singlet  
     staggered (Energy: -1650.91044652 A.U., DM: 0.0006) and eclipsed (Energy: -1650.91158318 A.U., DM: 0.000755)  
     WARNING: partial charges for Fe turns out to be -ve.  
-    use FEC parameters from SI of [Hatten et. al.](https://dx.doi.org/10.1002/chem.20070035)
+    use FEC parameters from SI of [Hatten et. al.](https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/chem.200700358)
   - [X] make two patch residues : -C6-FEC, -C11-FEC
     - [X] make alkane patches -C6 and -C11 with missing last hydrogen. New atom names in patch residues must not be the same as deleted ones.
     - 
