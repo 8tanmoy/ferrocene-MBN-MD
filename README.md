@@ -166,4 +166,9 @@ BOND CJ HJ1 CJ HJ2
 BOND CK HK1 CK HK2
 
 ```
-  - kk  
+    - [X] make patch for ferrocene and patch it on the alkanes  
+```
+
+```
+
+
