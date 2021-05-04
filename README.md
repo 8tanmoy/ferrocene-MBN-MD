@@ -55,7 +55,7 @@ AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
     use FEC parameters from SI of [Hatten et. al.](https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/chem.200700358)
   - [X] make two patch residues : -C6-FEC, -C11-FEC
     - [X] make alkane patches -C6 and -C11 with missing last hydrogen. New atom names in patch residues must not be the same as deleted ones.
-    - ```
+```
 !tanmoy 
 PRES PHEX   0.070 ! patch hexane. charge of THDLK/S1 = -0.07 (charmm-gui)
 dele atom C1
