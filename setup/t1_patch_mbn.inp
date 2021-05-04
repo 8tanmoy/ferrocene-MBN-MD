@@ -1,0 +1,39 @@
+* patch THDLK #182 with MBN
+* tanmoy apr 28, 2021
+*
+
+stream toppar.str
+
+open read unit 11 card name t1_from_step3.psf
+read psf unit 11 card
+
+open read card unit 12 name t1_from_step3.crd
+read coor card unit 12
+
+define tombn sele ( resname THDLK .and. resid 182 ) end
+
+calc lignum = ?selresi
+set ligseg = ?selsegi
+
+patch L00250 @ligseg @lignum
+
+IC gener
+IC param
+
+IC EDIT
+DIHE NM @lignum C1 NM @lignum CD1 NM @lignum CE1 NM @lignum CZ 0.00
+!DIHE NM @lignum CD1 NM @lignum CE1 NM @lignum CZ NM @lignum CE2 0.00
+END
+
+IC build
+
+open write card unit 13 name t2_mbnpatch.psf
+write psf unit 13 card
+
+open write card unit 14 name t2_mbnpatch.crd
+write coor unit 14 card
+
+open write card unit 15 name t2_mbnpatch.pdb
+write coor unit 15 pdb official
+
+stop
