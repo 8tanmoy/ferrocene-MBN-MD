@@ -48,8 +48,8 @@ and in `DIHEDRALS`
 IAU       SG311    CG2R61   CG2R61 0.0000 2 0.00
 AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
 ```
-  - [X] run `setup/patch_mbn.inp` --> `t2_mbnpatch.{psf, crd, pdb}`  
-  - [-] optimize ferrocene RB3LYP/Aug-CC-pVDZ charge 0 spin singlet  
+  - [X] Run `setup/patch_mbn.inp` --> `t2_mbnpatch.{psf, crd, pdb}`  
+  - [-] For detailed reference equilibrium structural information (bondlength/angles/IC), optimize ferrocene RB3LYP/Aug-CC-pVDZ charge 0 spin singlet  
     staggered (Energy: -1650.91044652 A.U., DM: 0.0006) and eclipsed (Energy: -1650.91158318 A.U., DM: 0.000755)  
     WARNING: partial charges for Fe turns out to be -ve.  
   - [X] use FEC parameters instead from SI of [Hatten et. al.](https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/chem.200700358)
