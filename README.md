@@ -31,8 +31,12 @@ AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
           [`t3.1-c6_patch_fec.inp`](/setup/t3.1-c6_patch_fec.inp) : patch one ferrocene ring  
           [`t3.2-c6_patch_fec.inp`](/setup/t3.2-c6_patch_fec.inp) : patch the rest of the ferrocene ring  
           [`t2-c11_patch.inp`](/setup/t2-c11_patch.inp) : patch -C11HX   
+          [`t3.1-c11_patch_fec.inp`](/setup/t3.1-c6_patch_fec.inp) : patch one ferrocene ring  
+          [`t3.2-c11_patch_fec.inp`](/setup/t3.2-c6_patch_fec.inp) : patch the rest of the ferrocene ring  
 
-  - [X] [`t4.1-c6_plane_copy.inp`](s/setup/t4.1-c6_plane_copy.inp), [`t4.2-c6_plane_copy.inp`](/setup/t4.2-c6_plane_copy.inp), [`t5-c6_double_layer.inp`](/setup/t5-c6_double_layer.inp) make necessary orientations, rotations, and translations to make 4x4x4 Au slab with ligands on both sides of density 2 nm^-2.  
+  - [X] [`t4.1-c6_plane_copy.inp`](s/setup/t4.1-c6_plane_copy.inp), [`t4.2-c6_plane_copy.inp`](/setup/t4.2-c6_plane_copy.inp), [`t5-c6_double_layer.inp`](/setup/t5-c6_double_layer.inp)  
+  [`t4.1-c11_plane_copy.inp`](s/setup/t4.1-c11_plane_copy.inp), [`t4.2-c11_plane_copy.inp`](/setup/t4.2-c11_plane_copy.inp), [`t5-c11_double_layer.inp`](/setup/t5-c11_double_layer.inp)  
+  make necessary orientations, rotations, and translations to make 4x4x4 Au slab with ligands on both sides of density 2 nm^-2.  
   - [X] make gromacs `.itp` and `.top` files. [CHARMM-GUI FF Cconverter](https://charmm-gui.org/?doc=input/converter.ffconverter) is giving `/` error. Use old [`psf2itp.py`](/setup/tools/psf2itp.py).
   - [X]
 
