@@ -89,7 +89,7 @@ calc xspan = ?XMAX - ?XMIN - 1.05
 
 coor translate XDIR 1.0 YDIR 0.0 ZDIR 0.0 DISTANCE @xspan sele all end
 
-!-- write x-translated copy
+!-- write x-translated copy --
 
 open write card unit 13 name t5_c6_plane_copy_2.psf
 write psf unit 13 card
