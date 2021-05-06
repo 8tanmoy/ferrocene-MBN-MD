@@ -49,126 +49,15 @@ IAU       SG311    CG2R61   CG2R61 0.0000 2 0.00
 AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
 ```
   - [X] run `setup/patch_mbn.inp` --> `t2_mbnpatch.{psf, crd, pdb}`  
-  - [X] optimize ferrocene RB3LYP/Aug-CC-pVDZ charge 0 spin singlet  
+  - [-] optimize ferrocene RB3LYP/Aug-CC-pVDZ charge 0 spin singlet  
     staggered (Energy: -1650.91044652 A.U., DM: 0.0006) and eclipsed (Energy: -1650.91158318 A.U., DM: 0.000755)  
     WARNING: partial charges for Fe turns out to be -ve.  
-    use FEC parameters from SI of [Hatten et. al.](https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/chem.200700358)
+  - [X] use FEC parameters instead from SI of [Hatten et. al.](https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/chem.200700358)
   - [X] make two patch residues : -C6-FEC, -C11-FEC
-    - [X] make alkane patches -C6 and -C11 with missing last hydrogen. New atom names in patch residues must not be the same as deleted ones.
-```
-!tanmoy 
-PRES PHEX   0.070 ! patch hexane. charge of THDLK/S1 = -0.07 (charmm-gui)
-dele atom C1
-dele atom H11
-dele atom H12
-dele atom C2
-dele atom H21
-dele atom H22
-dele atom H23
-
-ATOM CA    CG321    -0.11
-ATOM CB    CG321    -0.18
-ATOM CC    CG321    -0.18
-ATOM CD    CG321    -0.18
-ATOM CE    CG321    -0.18
-ATOM CF    CG321    -0.18
-ATOM HA1    HGA2    0.09
-ATOM HA2    HGA2    0.09
-ATOM HB1    HGA2    0.09
-ATOM HB2    HGA2    0.09
-ATOM HC1    HGA2    0.09
-ATOM HC2    HGA2    0.09
-ATOM HD1    HGA2    0.09
-ATOM HD2    HGA2    0.09
-ATOM HE1    HGA2    0.09
-ATOM HE2    HGA2    0.09
-ATOM HF1    HGA2    0.09
-ATOM HF2    HGA2    0.09
-
-BOND S1    CA
-BOND CA    CB
-BOND CB    CC
-BOND CC    CD
-BOND CD    CE
-BOND CE    CF
-BOND CA HA1 CA HA2
-BOND CB HB1 CB HB2
-BOND CC HC1 CC HC2
-BOND CD HD1 CD HD2
-BOND CE HE1 CE HE2
-BOND CF HF1 CF HF2
-
-!tanmoy 
-PRES PUND   0.070 ! patch undecane. charge of THDLK/S1 = -0.07 (charmm-gui)
-dele atom C1
-dele atom H11
-dele atom H12
-dele atom C2
-dele atom H21
-dele atom H22
-dele atom H23
-
-ATOM CA    CG321    -0.11
-ATOM CB    CG321    -0.18
-ATOM CC    CG321    -0.18
-ATOM CD    CG321    -0.18
-ATOM CE    CG321    -0.18
-ATOM CF    CG321    -0.18
-ATOM CG    CG321    -0.18
-ATOM CH    CG321    -0.18
-ATOM CI    CG321    -0.18
-ATOM CJ    CG321    -0.18
-ATOM CK    CG321    -0.18
-ATOM HA1    HGA2    0.09
-ATOM HA2    HGA2    0.09
-ATOM HB1    HGA2    0.09
-ATOM HB2    HGA2    0.09
-ATOM HC1    HGA2    0.09
-ATOM HC2    HGA2    0.09
-ATOM HD1    HGA2    0.09
-ATOM HD2    HGA2    0.09
-ATOM HE1    HGA2    0.09
-ATOM HE2    HGA2    0.09
-ATOM HF1    HGA2    0.09
-ATOM HF2    HGA2    0.09
-ATOM HG1    HGA2    0.09
-ATOM HG2    HGA2    0.09
-ATOM HH1    HGA2    0.09
-ATOM HH2    HGA2    0.09
-ATOM HI1    HGA2    0.09
-ATOM HI2    HGA2    0.09
-ATOM HJ1    HGA2    0.09
-ATOM HJ2    HGA2    0.09
-ATOM HK1    HGA2    0.09
-ATOM HK2    HGA2    0.09
-
-BOND S1    CA
-BOND CA    CB
-BOND CB    CC
-BOND CC    CD
-BOND CD    CE
-BOND CE    CF
-BOND CF    CG
-BOND CG    CH
-BOND CH    CI
-BOND CI    CJ
-BOND CJ    CK
-BOND CA HA1 CA HA2
-BOND CB HB1 CB HB2
-BOND CC HC1 CC HC2
-BOND CD HD1 CD HD2
-BOND CE HE1 CE HE2
-BOND CF HF1 CF HF2
-BOND CG HG1 CG HG2
-BOND CH HH1 CH HH2
-BOND CI HI1 CI HI2
-BOND CJ HJ1 CJ HJ2
-BOND CK HK1 CK HK2
-
-```
-    - [X] make patch for ferrocene and patch it on the alkanes  
-```
-
-```
+    - [X] make alkane patches -C6 and -C11 with missing last hydrogen. New atom names in patch residues must not be the same as deleted ones. Patches added as PHEX (patch hexane) and PUND (patch undecane) in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str)    
+    - [X] make patch for ferrocene and patch it on the alkanes. Patch for ferronece is called FEC in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str)  
+  - [X] make necessary orientations, rotations, and translations to make 4x4x4 Au slab with ligands on both sides of density 2 $nm^{-2}$  
+  - [X] make gromacs `.itp` and `.top` files. [CHARMM-GUI FF Cconverter](https://charmm-gui.org/?doc=input/converter.ffconverter) is giving `/` error. Use old [`psf2itp.py`](/setup/tools/psf2itp.py).
+  - 
 
 
