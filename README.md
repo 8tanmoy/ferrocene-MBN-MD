@@ -6,38 +6,6 @@ electric field calculation of MBN and alkyl-ferrocene functionalized Au surface
   - [X] get a copy of `step3_pbcsetup.crd/psf/pdb`  
   - [X] delete unnecessary toppar load from `toppar.str`  
   - [X] (like nitrile IL) add another pres for MBN at the end of `toppar_all36_nanolig_patch.str` in `charmm-gui-xxxx/toppar/`  
-```
-!tanmmoy 04/28/2021 
-PRES L00250 -0.000 ! linkage between THSLK and MBN
-dele atom H11
-dele atom H12
-dele atom C2
-dele atom H21
-dele atom H22
-dele atom H23
-
-ATOM    S1         SG311   -0.075
-ATOM    C1        CG2R61    0.085 !change to CG CG2R61
-ATOM    CD1       CG2R61   -0.125
-ATOM    HD1        HGR61    0.115
-ATOM    CD2       CG2R61   -0.125
-ATOM    HD2        HGR61    0.115
-ATOM    CE1       CG2R61   -0.104
-ATOM    HE1        HGR61    0.115
-ATOM    CE2       CG2R61   -0.104
-ATOM    HE2        HGR61    0.115
-ATOM    CZ        CG2R61    0.095
-ATOM    CN         CG1N1    0.356
-ATOM    NZ         NG1T1   -0.463
-
-BOND    S1  C1
-BOND    C1  CD1 C1 CD2
-BOND    CD1 HD1 CD1 CE1
-BOND    CD2 HD2 CD2 CE2
-BOND    CE1 HE1 CE2 HE2
-BOND    CZ  CE1 CZ CE2 CZ CN
-BOND    CN   NZ
-```  
   - [X] error might be generated like: `<CODES>: No angle parameters for    17 ( IAU      SG311    CG2R61  )`. For this `toppar/par_interface.prm` needs to be modified. in `ANGLES`  
 ```
 IAU  SG311     CG2R61   35.0000   105.0   ! 10.1007/s10853-012-6356-8
@@ -54,8 +22,8 @@ AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
     WARNING: partial charges for Fe turns out to be negative.  
   - [X] [`toppar_fec.str`](/setup/toppar/toppar_fec.str) : Use FEC parameters instead from SI of [Hatten et. al.](https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/chem.200700358)
   - [X] make two patch residues : -C6-FEC, -C11-FEC
-    - [X] make alkane patches -C6 and -C11 with missing last hydrogen. New atom names in patch residues must not be the same as deleted ones. Patches added as PHEX (patch hexane) and PUND (patch undecane) in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str)    
-    - [X] make patch for ferrocene and patch it on the alkanes. Patch for ferronece is called FEC in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str)  
+    - [X] make alkane patches -C6 and -C11 with missing last hydrogen. New atom names in patch residues must not be the same as deleted ones. Patches added as `PHEX` (patch hexane) and `PUND` (patch undecane) in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str)    
+    - [X] make patch for ferrocene and patch it on the alkanes. Patch for ferronece is `FEC` in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str)  
   - [X] make necessary orientations, rotations, and translations to make 4x4x4 Au slab with ligands on both sides of density 2 $nm^{-2}$  
   - [X] make gromacs `.itp` and `.top` files. [CHARMM-GUI FF Cconverter](https://charmm-gui.org/?doc=input/converter.ffconverter) is giving `/` error. Use old [`psf2itp.py`](/setup/tools/psf2itp.py).
   - [X]
