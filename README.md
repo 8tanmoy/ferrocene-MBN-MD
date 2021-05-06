@@ -25,7 +25,7 @@ AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
     - [X] make alkane patches -C6 and -C11 with missing last hydrogen. New atom names in patch residues must not be the same as deleted ones. Patches added as `PHEX` (patch hexane) and `PUND` (patch undecane) in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str)    
     - [X] make patch for ferrocene and patch it on the alkanes. Patch for ferronece is `FEC` in [`toppar_all36_nanolig_patch.str`](/setup/toppar/toppar_all36_nanolig_patch.str). This is done in two parts:  
       - [X] First patch the residue with uninitialized coordinates for C6-C10, FE  
-      - [X] Tranalate the system in VMD and get coordinates for C6,C7,C8,C9,C10,FE  
+      - [X] [`t3.2-c6_translated_cp_fe.pdb`](/setup/t3.2-c6_translated_cp_fe.pdb) : Tranalate the system in VMD and get coordinates for C6,C7,C8,C9,C10,FE  
       - [X] Hbuild  
     - [X] [`t2-c6_patch.inp`](/setup/t2-c6_patch.inp) : patch -C6HX  
           [`t3.1-c6_patch_fec.inp`](/setup/t3.1-c6_patch_fec.inp) : patch one ferrocene ring  
