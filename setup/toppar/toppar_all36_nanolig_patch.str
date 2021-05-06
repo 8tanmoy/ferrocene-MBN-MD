@@ -7372,7 +7372,7 @@ BOND CJ HJ1 CJ HJ2
 BOND CX HX1 CX HX2
 
 !tanmoy 
-PRES FEC  -1.000 ! patch ferrocene
+PRES FEC  0.000 ! patch ferrocene
 dele atom HX1
 dele atom HX2
 GROUP
