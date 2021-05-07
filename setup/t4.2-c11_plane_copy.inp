@@ -1,0 +1,123 @@
+* translate slab to repeat it four times in-plane
+* tanmoy may 5, 2021
+*
+!BOMLEV -1
+!WRNLEV 9
+stream toppar.str
+
+open read unit 11 card name t5_c11_plane_copy.psf
+read psf unit 11 card
+
+open read card unit 12 name t5_c11_plane_copy.crd
+read coor card unit 12
+
+!PRINt COORdinate SELEct .NOT. INITialized END
+define refaus sele (bynum 850 .or. bynum 846 .or. bynum 842 .or. bynum 386 .or. bynum 382 .or. bynum 378) end
+
+coor orient sele refaus end
+coor stat
+
+!-- write original copy
+
+open write card unit 13 name t5_c11_plane_copy2_1.psf
+write psf unit 13 card
+
+open write card unit 14 name t5_c11_plane_copy2_1.crd
+write coor unit 14 card
+
+open write card unit 15 name t5_c11_plane_copy2_1.pdb
+write coor unit 15 pdb official
+
+calc xspan = ?XMAX - ?XMIN - 1.05
+
+coor translate XDIR 1.0 YDIR 0.0 ZDIR 0.0 DISTANCE @xspan sele all end
+
+coor stat
+
+!-- write x-translated copy
+
+open write card unit 13 name t5_c11_plane_copy2_2.psf
+write psf unit 13 card
+
+open write card unit 14 name t5_c11_plane_copy2_2.crd
+write coor unit 14 card
+
+open write card unit 15 name t5_c11_plane_copy2_2.pdb
+write coor unit 15 pdb official
+
+!-- read and append original to it --
+
+open read unit 11 card name t5_c11_plane_copy2_1.psf
+read psf unit 11 card append
+
+open read card unit 12 name t5_c11_plane_copy2_1.crd 
+read coor card unit 12 append
+
+!-- write combined --
+mini sd   nstep 1000 nprint 100
+mini abnr nstep 1000 nprint 100
+
+open write card unit 13 name t5_c11_plane_copy2_3.psf
+write psf unit 13 card
+
+open write card unit 14 name t5_c11_plane_copy2_3.crd
+write coor unit 14 card
+
+open write card unit 15 name t5_c11_plane_copy2_3.pdb
+write coor unit 15 pdb official
+
+!-- change x and y --
+define refaus sele (bynum 1570 .or. bynum 1558 .or. bynum 1546 .or. bynum 1802 .or. bynum 1790 .or. bynum 1778) end
+
+coor orient sele refaus end
+
+!-- write correctly oriented slab --
+
+open write card unit 13 name t5_c11_plane_copy2_1.psf
+write psf unit 13 card
+
+open write card unit 14 name t5_c11_plane_copy2_1.crd
+write coor unit 14 card
+
+open write card unit 15 name t5_c11_plane_copy2_1.pdb
+write coor unit 15 pdb official
+
+!-- translate --
+
+calc xspan = ?XMAX - ?XMIN - 1.05
+
+coor translate XDIR 1.0 YDIR 0.0 ZDIR 0.0 DISTANCE @xspan sele all end
+
+!-- write x-translated copy
+
+open write card unit 13 name t5_c11_plane_copy2_2.psf
+write psf unit 13 card
+
+open write card unit 14 name t5_c11_plane_copy2_2.crd
+write coor unit 14 card
+
+open write card unit 15 name t5_c11_plane_copy2_2.pdb
+write coor unit 15 pdb official
+
+!-- read and append original to it --
+
+open read unit 11 card name t5_c11_plane_copy2_1.psf
+read psf unit 11 card append
+
+open read card unit 12 name t5_c11_plane_copy2_1.crd 
+read coor card unit 12 append
+
+!-- write combined --
+mini sd   nstep 1000 nprint 100
+mini abnr nstep 1000 nprint 100
+
+open write card unit 13 name t5_c11_plane_copy2.psf
+write psf unit 13 card
+
+open write card unit 14 name t5_c11_plane_copy2.crd
+write coor unit 14 card
+
+open write card unit 15 name t5_c11_plane_copy2.pdb
+write coor unit 15 pdb official
+
+stop
