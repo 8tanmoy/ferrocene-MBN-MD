@@ -1,0 +1,69 @@
+* rotate 180 and reflect
+* tanmoy may 5, 2021
+*
+
+!BOMLEV -1
+WRNLEV 9
+stream toppar.str
+
+open read unit 11 card name t5_c12_plane_copy2.psf
+read psf unit 11 card
+
+open read card unit 12 name t5_c12_plane_copy2.crd
+read coor card unit 12
+
+!-- make vertical as X --
+define refdir sele (type AUS) end
+coor orient sele refdir end
+
+!-- write coorectly oriented slab --
+open write card unit 13 name t6_c12_double_1.psf
+write psf unit 13 card
+
+open write card unit 14 name t6_c12_double_1.crd
+write coor unit 14 card
+
+open write card unit 15 name t6_c12_double_1.pdb
+write coor unit 15 pdb official
+
+!-- take measurements and translate --
+coor stat
+calc zspan = -1 * (?ZMAX - ?ZMIN + 2.07)
+coor translate XDIR 0.0 YDIR 0.0 ZDIR 1.0 DISTANCE @zspan sele all end
+
+coor rotate XDIR 1.0 YDIR 1.0  phi 180 sele all end
+coor rotate XDIR 0.0 YDIR 0.0 ZDIR 1.0 phi 180 sele all end
+
+!-- write x-translated copy --
+open write card unit 13 name t6-c12_double_2.psf
+write psf unit 13 card
+
+open write card unit 14 name t6-c12_double_2.crd
+write coor unit 14 card
+
+open write card unit 15 name t6-c12_double_2.pdb
+write coor unit 15 pdb official
+
+!-- read and append the original coordinates --
+open read unit 11 card name t6_c12_double_1.psf
+read psf unit 11 card append
+
+open read card unit 12 name t6_c12_double_1.crd 
+read coor card unit 12 append
+
+!-- rotate all 45 degrees wrt z --
+coor rotate XDIR 0.0 YDIR 0.0 ZDIR 1.0 phi 45 sele all end
+
+!-- minimize and write final coordinates --
+!mini sd   nstep 1000 nprint 100
+!mini abnr nstep 1000 nprint 100
+
+open write card unit 13 name t6_c12_double.psf
+write psf unit 13 card
+
+open write card unit 14 name t6_c12_double.crd
+write coor unit 14 card
+
+open write card unit 15 name t6_c12_double.pdb
+write coor unit 15 pdb official
+stop

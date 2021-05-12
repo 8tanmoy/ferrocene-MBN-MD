@@ -1,0 +1,39 @@
+* patch THDLK #182 with MBN
+* tanmoy apr 28, 2021
+*
+
+WRNLEV 9
+stream toppar.str
+
+open read unit 11 card name t2_mbnpatch.psf
+read psf unit 11 card
+
+open read card unit 12 name t2_mbnpatch.crd
+read coor card unit 12
+
+calc ipat = 2
+define ligtofec sele ( type S1 ) show end
+calc ntotlig = ?nsel
+label patlig
+    calc lignum = ( 2000 + @ipat )
+    patch PHEX NM @lignum
+    incr ipat by 2
+    if ipat .le. @ntotlig goto patlig
+endif
+
+IC gener
+IC param
+IC build
+
+print coor
+
+open write card unit 13 name t3_c6.psf
+write psf unit 13 card
+
+open write card unit 14 name t3_c6.crd
+write coor unit 14 card
+
+open write card unit 15 name t3_c6.pdb
+write coor unit 15 pdb official
+
+stop

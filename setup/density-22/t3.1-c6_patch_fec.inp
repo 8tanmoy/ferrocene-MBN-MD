@@ -1,0 +1,51 @@
+* patch THDLK #182 with MBN
+* tanmoy apr 28, 2021
+*
+!BOMLEV -1
+WRNLEV 9
+stream toppar.str
+
+open read unit 11 card name t3_c6.psf
+read psf unit 11 card
+
+open read card unit 12 name t3_c6.crd
+read coor card unit 12
+
+define tofec sele ( resname THDLK .and. resid 181 ) end
+
+calc lignum = ?selresi
+set ligseg = ?selsegi
+
+patch FEC @ligseg @lignum
+
+IC gener
+IC param
+
+print coor
+
+IC EDIT
+!-- upper ring --
+DIHE NM @lignum C1 NM @lignum C2 NM @lignum C3 NM @lignum C4 0.0
+DIHE NM @lignum C3 NM @lignum C4 NM @lignum C5 NM @lignum C1 0.0
+!-- lower ring --
+DIHE NM @lignum C6 NM @lignum C7 NM @lignum C8 NM @lignum C9 0.0
+DIHE NM @lignum C8 NM @lignum C9 NM @lignum C10 NM @lignum C6 0.0
+END
+
+IC build
+
+!mini sd   nstep 1000 nprint 100
+!mini abnr nstep 1000 nprint 100
+
+PRINt COORdinate SELEct .NOT. INITialized END
+
+open write card unit 13 name t4_c6_fec_1.psf
+write psf unit 13 card
+
+open write card unit 14 name t4_c6_fec_1.crd
+write coor unit 14 card
+
+open write card unit 15 name t4_c6_fec_1.pdb
+write coor unit 15 pdb official
+
+stop
