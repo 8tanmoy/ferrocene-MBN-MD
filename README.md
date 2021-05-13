@@ -38,6 +38,6 @@ AUS       SG311    CG2R61   CG2R61 0.0000 2 0.00
         [`t4.1-c11_plane_copy.inp`](/setup/density-22/t4.1-c11_plane_copy.inp), [`t4.2-c11_plane_copy.inp`](/setup/density-22/t4.2-c11_plane_copy.inp), [`t5-c11_double_layer.inp`](/setup/density-22/t5-c11_double_layer.inp)  
         make necessary orientations, rotations, and translations to make 4x4x4 Au slab with ligands on both sides of density 2 nm^-2.  
   - [X] make gromacs `.itp` and `.top` files. [CHARMM-GUI FF Cconverter](https://charmm-gui.org/?doc=input/converter.ffconverter) is producing `/` error. Use old [`psf2itp.py`](/setup/tools/psf2itp.py). It has been modified to accomodate new atom definitions in INTERFACE parameter file.  
-  - [X] The gromacs `.top`, `.mdp` and helper batch files are in 
+  - [X] The gromacs `.top`, `.mdp` and helper batch files are in [`gromacs`](/gromacs/) folder.
 
 

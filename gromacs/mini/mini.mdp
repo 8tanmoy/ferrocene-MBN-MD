@@ -1,0 +1,21 @@
+integrator              = steep
+emtol                   = 1000.0
+;emstep                   = 0.005
+nsteps                  = 20000
+nstlist                 = 10
+cutoff-scheme           = Verlet
+rlist                   = 1.2
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+coulombtype             = pme
+rcoulomb                = 1.2
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+;freeze atomgroup
+freezegrps               = non-Water
+freezedim                = Y Y N
+disre                    = simple
+disre-fc                 = 200000   ;200000
