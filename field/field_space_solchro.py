@@ -109,7 +109,7 @@ def normalize(vec): #-> norm
 def gen_trajout(time, root): #-> gmx_trj_cmd call
     print(f'generating trajectory output at {root} for t={time}')
     gmx_trj_cmd = "echo 0 | gmx_mpi trjconv -f " + root + "prod/prod.trr -s " + root + "prod/prod.tpr"\
-                  + " -b " + str(time) + " -e " + str(time) + " -pbc none"\
+                  + " -b " + str(time) + " -e " + str(time) + " -pbc nojump"\
                   + " -o trajout.gro"
     #center or boxcenter does not make a difference
     #print(f'gmx_trj_cmd = {gmx_trj_cmd}')
@@ -288,11 +288,11 @@ def calc_field_freq(resid_mbn, noGold, boxDim, chargeList, rcut):
     return(dNuInter, dNuMu, dNuTheta, dNuOmega)
 
 if __name__ == '__main__':
-    root        = '/projectnb/cui-buchem/tanmoy/projects/' + 'FERRO3/c6-mbn/'
+    root        = '<project directory>' + 'FERRO3/c6-mbn/'
     drf         = root + 'field_time_cho'
     wrk         = os.getcwd()
     tbeg        = time.perf_counter()
-    simTime     = 0 + 10 * _TNO_   #after first 100ns, take last 100ns
+    simTime     = 0 + 20 * _TNO_   #after first 100ns, take last 100ns
     gen_trajout(simTime, root)
     
     #-- process gro file --
