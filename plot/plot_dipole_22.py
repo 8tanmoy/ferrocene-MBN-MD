@@ -22,7 +22,7 @@ dfs_dip = {}
 for sysname in sysnames:
     fname_n			= sysname + '_rho_n.xvg'
     fname_dip       = sysname + '_order.xvg'
-    dfs_n[sysname]	= pd.read_csv(fname_n ,skiprows=27, header=None, delim_whitespace=True)
+    dfs_n[sysname]	= pd.read_csv(fname_n ,skiprows=29, header=None, delim_whitespace=True)
     peakpos_aus		= np.argmax(dfs_n[sysname][1])
     peak_aus		= abs(dfs_n[sysname][0][peakpos_aus])
     print(sysname, peak_aus)
